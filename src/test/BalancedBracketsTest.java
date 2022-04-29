@@ -47,4 +47,24 @@ public class BalancedBracketsTest {
     public void nestedOutOfOrderInvalid() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("[[]]][[]"));
     }
+
+    @Test
+    public void onlyOpenInvalid() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("["));
+    }
+
+    @Test
+    public void onlyCloseInvalid() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]"));
+    }
+
+    @Test
+    public void multiNestValid() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[[]]"));
+    }
+
+    @Test
+    public void separateGroupsValid() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[] [[]]"));
+    }
 }
